@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+# This a Person class
 class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name: 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission = true)
     @id = Random.rand(1..100)
     @name = name,
             @age = age,
@@ -12,7 +13,7 @@ class Person
   end
 
   def can_use_services?
-    if is_of_age? || @parent_permission
+    if self.isof_age? || @parent_permission
       true
     else
       false
@@ -20,8 +21,8 @@ class Person
   end
 
   private
-
-  def is_of_age?
+  def isof_age?
     @age >= 18
   end
 end
+
