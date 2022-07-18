@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Decode Morse Code
 
 A Ruby program to decrypting messages written in Morse code.
