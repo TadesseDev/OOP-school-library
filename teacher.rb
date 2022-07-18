@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 require_relative 'person'
 
 # This a Teacher class
 class Teacher < Person
-  def initialize(age, specialization, name = 'Unknown', parent_permission: true)
+  def initialize(age, specialization, name = 'Unknown', parent_permission = true)
     super(age, name, parent_permission)
     @specialization = specialization
   end
@@ -13,4 +11,3 @@ class Teacher < Person
     true
   end
 end
-

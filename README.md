@@ -1,6 +1,8 @@
-# OOP-school-library
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that I will create will allow you to: Add new students or teachers. Add new books. Save records of who borrowed a given book and when. And all of this will be built in a beautiful and well-organized way! you will start building your school library app. In this initial step, you will implement the classes to represent students and teachers.
+# Decode Morse Code
+
+A Ruby program to decrypting messages written in Morse code.
 
 ## Built With
 
@@ -15,12 +17,11 @@ To get a local copy up and running follow these simple example steps.
 You must have Ruby installed in your computer.
 
 ### Clone this repo
-
-`git clone git@github.com:marilirulita/OOP-school-library`
+`git clone git@github.com:marilirulita/decode_morse_code.git`
 
 ### In your terminal:
 
-`ruby person.rb`
+`ruby Main.rb`
 
 ## Authors
 
@@ -29,6 +30,12 @@ You must have Ruby installed in your computer.
 - GitHub: [@Tadess-Alemayehu](https://github.com/Tadesse-Alemayehu)
 - Twitter: [@TadesseWebDev](https://twitter.com/TadesseWebDev)
 - LinkedIn: [Tadesse Alemayehu](https://www.linkedin.com/in/tadesse-alemayehu-60141a221/)
+
+👤 **Mar Bautista**
+
+- GitHub: [marilirulita](https://github.com/marilirulita)
+- LinkedIn: [mar bautista](https://www.linkedin.com/in/marbautista/)
+- Twitter: [@marylirulita](https://twitter.com/marylirulita)
 
 ## 🤝 Contributing
 
@@ -43,7 +50,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to all our code reviewers and partners at Microverse.
-
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.

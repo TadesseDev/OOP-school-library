@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'person'
 # This a Student class
 class Student < Person
@@ -13,4 +11,5 @@ class Student < Person
   end
 end
 
-
+person = Student.new(14, 'persone_one', false)
+puts person.can_use_services?

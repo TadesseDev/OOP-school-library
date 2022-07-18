@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This a Person class
 class Person
   attr_accessor :name, :age
@@ -13,7 +11,7 @@ class Person
   end
 
   def can_use_services?
-    if self.isof_age? || @parent_permission
+    if isof_age? || @parent_permission
       true
     else
       false
@@ -21,8 +19,8 @@ class Person
   end
 
   private
+
   def isof_age?
     @age >= 18
   end
 end
-

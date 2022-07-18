@@ -28,12 +28,13 @@ GEM
       sorbet-runtime
       syntax_tree (>= 2.4)
     ruby-progressbar (1.11.0)
-    sorbet-runtime (0.5.10172)
-    syntax_tree (3.0.1)
+    sorbet-runtime (0.5.10154)
+    syntax_tree (3.0.0)
       prettier_print
     unicode-display_width (2.2.0)
 
 PLATFORMS
+  x64-mingw32
   x86_64-linux
 
 DEPENDENCIES
