@@ -6,7 +6,3 @@ class CapitalizeDecorator < BaseDecorator
     super().capitalize!
   end
 end
-
-person = Person.new(22, 'maximilianus')
-capitalizedPerson = CapitalizeDecorator.new(person)
-puts capitalizedPerson.correct_name
