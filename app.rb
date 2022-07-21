@@ -29,7 +29,9 @@ if(input==1||input==2)
   elsif input==2
     print "specialization:"
     specialization=gets.chomp
-    puts "teacher result is #{age} #{name} #{specialization}"
+    teacher=Teacher.new(age, specialization, name)
+    @persons.push(teacher)
+    puts "persons #{@persons.length}"
   end
 else
     puts "Invalid input"
