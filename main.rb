@@ -1,3 +1,4 @@
+require_relative 'app'
 def main
   options=[
     "Pleas choose an option by entering a bunber",
@@ -14,17 +15,17 @@ def main
   while input != 7
     case input
       when 1
-      puts "working on : #{options[1]}"
+      list_all_books
       when 2
-      puts "working on : #{options[2]}"
+      list_all_people
       when 3
-      puts "working on : #{options[3]}"
+      puts create_person
       when 4
-      puts "working on : #{options[4]}"
+      puts create_book
       when 5
-      puts "working on : #{options[5]}"
+      puts create_rental
       when 6
-      puts "working on : #{options[6]}"
+      puts list_all_rentals
     end
   puts options
   input=gets.chomp.to_i
