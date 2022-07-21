@@ -78,5 +78,13 @@ def create_rental
 end
 
 def list_all_rentals
-  puts 'list all rents'
+  print 'ID of person: '
+  id=gets.chomp
+  person=@persons.filter {|person| person.id==id.to_i}
+  if person.length>0
+    person=person[0]
+  @rentals.each { |rent| puts "date: #{rent.date}, Book: \"#{rent.book.title}\" by #{rent.book.author}" unless rent.person.id!=person.id }
+  else
+    puts 'No person found with that ID'
+  end
 end
