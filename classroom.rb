@@ -5,11 +5,12 @@ class Classroom
   def initialize(label)
     @label = label
   end
-  def get_label
+
+  def getlabel
     @label
   end
 
-  def set_label(label)
+  def setlabel(label)
     @label = label
   end
 

@@ -16,12 +16,4 @@ class Rental
   def setdate(date)
     @date = date
   end
-
-  def book(book)
-    @book = book
-  end
-
-  def person(book)
-    @book = book
-  end
 end
