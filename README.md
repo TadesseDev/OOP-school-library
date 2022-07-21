@@ -1,6 +1,12 @@
-# Decode Morse Code
+# OOP school library
 
-A Ruby program to decrypting messages written in Morse code.
+> Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them. The app that I will create will allow you to:
+
+> - Add new students or teachers.
+> - Add new books.
+>   -Save records of who borrowed a given book and when.
+
+## And all of this will be built in a beautiful and well-organized way!
 
 ## Built With
 
@@ -8,18 +14,34 @@ A Ruby program to decrypting messages written in Morse code.
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+1. Open [dev branch](https://github.com/Tadesse-Alemayehu/OOP-school-library)
+2. Open VSCode or terminal and navigate to the folder where you would like to clone the project.
+3. Type "pwd" to see your working directory.
+4. [clone repository](https://github.com/Tadesse-Alemayehu/OOP-school-library)
+
+```bash
+$ git clone https://github.com/Tadesse-Alemayehu/OOP-school-library
+```
+
+5. Run
+
+```bash
+ruby main.rb
+```
+
+6. Enjoy 😎
 
 ### Prerequisites
 
 You must have Ruby installed in your computer.
 
 ### Clone this repo
-`git clone git@github.com:marilirulita/decode_morse_code.git`
+
+`git clone git@github.com:marilirulita/OOP-school-library`
 
 ### In your terminal:
 
-`ruby Main.rb`
+`ruby main.rb`
 
 ## Authors
 
@@ -28,12 +50,6 @@ You must have Ruby installed in your computer.
 - GitHub: [@Tadess-Alemayehu](https://github.com/Tadesse-Alemayehu)
 - Twitter: [@TadesseWebDev](https://twitter.com/TadesseWebDev)
 - LinkedIn: [Tadesse Alemayehu](https://www.linkedin.com/in/tadesse-alemayehu-60141a221/)
-
-👤 **Mar Bautista**
-
-- GitHub: [marilirulita](https://github.com/marilirulita)
-- LinkedIn: [mar bautista](https://www.linkedin.com/in/marbautista/)
-- Twitter: [@marylirulita](https://twitter.com/marylirulita)
 
 ## 🤝 Contributing
 
@@ -48,6 +64,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to all our code reviewers and partners at Microverse.
+
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
