@@ -8,12 +8,4 @@ class Rental
     @person = person
     person.rentals << self
   end
-
-  def date
-    @date
-  end
-
-  def date=(date)
-    @date = date
-  end
 end

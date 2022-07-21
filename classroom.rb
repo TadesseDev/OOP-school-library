@@ -3,19 +3,11 @@ class Classroom
 
   def initialize(label)
     @label = label
-    @students=[]
+    @students = []
   end
 
-  def label
-    @label
-  end
-
-  def label=(label)
-    @label = label
-  end
-
-  def students(student)
+  def add_students=(student)
     @students.push(student)
-    student.classroom(self)
+    student.update_classroom(self)
   end
 end
