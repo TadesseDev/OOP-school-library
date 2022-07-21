@@ -1,4 +1,8 @@
-person=[]
+require_relative 'classroom'
+require_relative 'student'
+require_relative 'teacher'
+@class_room_1=Classroom.new('microverse_one')
+@persons=[]
 def list_all_books
   puts 'listing all books'
 end
@@ -19,7 +23,9 @@ if(input==1||input==2)
     print "Hase parent permission [Y/N]:"
     permission=gets.chomp
     permission=permission.upcase=='Y'?true:false
-    puts "student result is #{age} #{name} #{permission}"
+    student=Student.new(age, @class_room_1, name, permission)
+    @persons.push(student)
+    puts "persons #{@persons.length}"
   elsif input==2
     print "specialization:"
     specialization=gets.chomp
