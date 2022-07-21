@@ -4,16 +4,16 @@ class Rental
   def initialize(date, book, person)
     @date = date
     @book = book
-    book.rentals<<self
+    book.rentals << self
     @person = person
-    person.rentals<<rentals
+    person.rentals << self
   end
 
-  def get_date
+  def getdate
     @date
   end
 
-  def set_date(date)
+  def setdate(date)
     @date = date
   end
 
