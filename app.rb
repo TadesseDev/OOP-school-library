@@ -8,31 +8,31 @@ require_relative 'rental'
 @books=[]
 @rentals=[]
 def list_all_books
-  @books.each {|book| puts "Title: \"#{book.title}\", Author: \"#{book.author}\""}
+  @books.each_with_index {|book,index| puts "#{index} Title: \"#{book.title}\", Author: \"#{book.author}\""}
 end
 
 def list_all_people
-  @persons.each {|person| puts "[#{person.class}] Name: #{person.name}, Id: #{person.id}, age: #{person.age},"}
+  @persons.each_with_index {|person,index| puts "#{index} [#{person.class}] Name: #{person.name}, Id: #{person.id}, age: #{person.age},"}
 end
 
 def create_person
   print 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
   input = gets.chop.to_i
   if [1, 2].include?(input)
-    print 'age:'
+    print 'age: '
     age = gets.chomp.to_i
-    print 'Name:'
+    print 'Name: '
     name = gets.chomp
     case input
     when 1
-      print 'Hase parent permission [Y/N]:'
+      print 'Hase parent permission [Y/N]: '
       permission = gets.chomp
       permission = permission.upcase == 'Y'
       student = Student.new(age, @class_room_1, name, permission)
       @persons.push(student)
-      puts "persons #{@persons.length}"
+      puts 'Person created  successfully'
     when 2
-      print 'Specialization'
+      print 'Specialization: '
       specialization = gets.chomp
       teacher = Teacher.new(age, specialization, name)
       @persons.push(teacher)

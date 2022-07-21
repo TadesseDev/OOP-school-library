@@ -1,14 +1,14 @@
 require_relative 'app'
 def main
   options = [
-    'Pleas choose an option by entering a bunber',
+    "\n\nPleas choose an option by entering a bunber",
     '1 - List all books',
     '2 - List all people',
     '3 - create a person',
     '4 - create a book',
     '5 - create a rental',
     '6 - List all rental for a given person id',
-    '7 - Exit'
+    "7 - Exit \n\n"
   ]
   puts options
   input = gets.chomp.to_i
