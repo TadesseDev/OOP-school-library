@@ -7,19 +7,19 @@ class Book
     @rentals = []
   end
 
-  def gettitle
+  def title
     @title
   end
 
-  def settitle(title)
+  def title=(title)
     @title = title
   end
 
-  def getauthor
+  def author
     @author
   end
 
-  def setauthor(author)
+  def author=(author)
     @author = author
   end
 end

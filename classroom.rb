@@ -1,16 +1,16 @@
 class Classroom
-  attr_accessor :label
-  attr_writer :students[]
+  attr_accessor :label, :students
 
   def initialize(label)
     @label = label
+    @students=[]
   end
 
-  def getlabel
+  def label
     @label
   end
 
-  def setlabel(label)
+  def label=(label)
     @label = label
   end
 

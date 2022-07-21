@@ -9,11 +9,11 @@ class Rental
     person.rentals << self
   end
 
-  def getdate
+  def date
     @date
   end
 
-  def setdate(date)
+  def date=(date)
     @date = date
   end
 end
