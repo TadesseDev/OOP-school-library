@@ -87,4 +87,5 @@ def list_all_rentals
   else
     puts 'No person found with that ID'
   end
+  ''
 end
