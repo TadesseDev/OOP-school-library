@@ -4,4 +4,11 @@ class Book
     @title = title
     @author = author
   end
+
+  def get_title
+    @title
+  end
+  def set_title(title)
+    @title = title
+  end
 end
