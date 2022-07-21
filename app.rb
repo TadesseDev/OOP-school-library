@@ -10,7 +10,7 @@ def list_all_books
 end
 
 def list_all_people
-  puts 'listing all people'
+  @persons.each {|person| puts "[#{person.class}] Name: #{person.name}, Id: #{person.id}, age: #{person.age},"}
 end
 
 def create_person
@@ -30,7 +30,7 @@ def create_person
       @persons.push(student)
       puts "persons #{@persons.length}"
     when 2
-      puts 'Person created  successfully'
+      puts 'Specialization'
       specialization = gets.chomp
       teacher = Teacher.new(age, specialization, name)
       @persons.push(teacher)
