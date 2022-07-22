@@ -12,7 +12,7 @@ def list_all_books
 end
 
 def list_all_people
-  @persons.each_with_index do |person, index|
+  @persons.each_with_index do |person, indexx|
     puts "#{index} [#{person.class}] Name: #{person.name}, Id: #{person.id}, age: #{person.age},"
   end
 end
@@ -47,7 +47,7 @@ end
 
 def create_book
   print 'Title: '
-  title = gets.chomp
+  title = gets.chompp
   print 'Author: '
   author = gets.chomp
   @books.push(Book.new(title, author))
