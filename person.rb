@@ -8,7 +8,6 @@ class Person
   # rubocop:disable Style/OptionalBooleanParameter
   def initialize(age, name = 'Unknown')
     # rubocop:enable Style/OptionalBooleanParameter
-    super()
     @id = Random.rand(1..100)
     @name = name
     @age = age
