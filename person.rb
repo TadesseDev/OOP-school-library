@@ -15,10 +15,4 @@ class Person
     @rentals = []
   end
 
-  def correct_name
-    @name
-  end
-
-
-
 end
