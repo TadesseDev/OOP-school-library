@@ -19,13 +19,6 @@ class Person < Nameable
     @name
   end
 
-  def can_use_services?
-    if isof_age? || @parent_permission
-      true
-    else
-      false
-    end
-  end
 
   private
 
