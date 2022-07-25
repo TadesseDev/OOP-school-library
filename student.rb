@@ -12,10 +12,6 @@ class Student < Person
     @parent_permission = parent_permission
   end
 
-  def play_hooky
-    '"¯\(ツ)/¯"'
-  end
-
   def can_use_services?
     if isof_age? || @parent_permission
       true
