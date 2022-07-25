@@ -1,7 +1,7 @@
-require_relative 'nameable'
+
 
 # This a Person class
-class Person < Nameable
+class Person
   attr_accessor :name, :age, :rentals
   attr_reader :id
 

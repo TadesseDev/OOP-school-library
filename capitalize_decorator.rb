@@ -1,8 +1,8 @@
-require_relative 'base_decorator'
-
-require_relative 'person'
-class CapitalizeDecorator < BaseDecorator
+class CapitalizeDecorator
+  def initialize(person)
+    @person = person
+  end
   def correct_name
-    super().capitalize!
+    @person.name.capitalize!
   end
 end

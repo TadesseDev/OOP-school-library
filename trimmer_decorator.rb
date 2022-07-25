@@ -1,12 +1,12 @@
 require_relative 'person'
 
-require_relative 'base_decorator'
-
 require_relative 'capitalize_decorator'
-
-class TrimmerDecorator < BaseDecorator
+class TrimmerDecorator
+  def initialize(person)
+    @person = person
+  end
   def correct_name
-    super().slice(0, 10)
+    @person.name.slice(0, 10)
   end
 end
 
