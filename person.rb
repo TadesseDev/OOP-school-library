@@ -20,9 +20,5 @@ class Person < Nameable
   end
 
 
-  private
 
-  def isof_age?
-    @age >= 18
-  end
 end
