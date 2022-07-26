@@ -19,10 +19,11 @@ def load_files
   person["classroom"] ? Student.new(person["age"],  Classroom.new(person["classroom"]), person["name"], person["permission"]) : Teacher.new(person["age"], person["specialization"], person["name"])
 end : []
 @books=@book_file.read_json ? @book_file.read_json.map do |book|
-  binding.pry
   Book.new(book["title"], book["author"])
 end : []
-# puts @rentasl_file.read_json
+@rentals=@rentasl_file.read_json ? @rentasl_file.read_json.map do |rent|
+Rental.new(rent["date"], @books[rent["book"]], @persons[rent["person"]])
+end : []
 end
 
 def save_files
@@ -30,7 +31,8 @@ def save_files
    person.class==Student ? {"name": person.name,"classroom": person.classroom.label,"age": person.age,"permission": person.parent_permission} : {"name": person.name,"specialization": "not set","age": person.age}
 end
 bookArray=@books.map {|book| {"title": book.title, "author": book.author}}
-rentArray=@rentals.map {|rental| {"date": rental.date, "book": rental.book, "person": rental.person}}
+
+rentArray=@rentals.map {|rental| {"date": rental.date, "book": @books.index(rental.book), "person": @persons.index(rental.person)}}
 @person_file.save_to_json(personArray,options: {})
 @book_file.save_to_json(bookArray,options: {})
 @rentasl_file.save_to_json(rentArray,options: {})
