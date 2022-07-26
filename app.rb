@@ -8,6 +8,25 @@ require_relative 'rental'
 @persons = []
 @books = []
 @rentals = []
+
+def load_files
+puts 'loading file'
+end
+
+
+
+def save_files
+puts 'saving data'
+end
+
+
+
+
+
+
+
+
+
 def list_all_books
   @books.each_with_index { |book, index| puts "#{index} Title: \"#{book.title}\", Author: \"#{book.author}\"" }
 end

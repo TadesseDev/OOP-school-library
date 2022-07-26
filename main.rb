@@ -1,16 +1,15 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 require_relative 'app'
 def main
-  options = [
-    "\n\nPleas choose an option by entering a bunber",
+  options = [ "\n\nPleas choose an option by entering a bunber",
     '1 - List all books',
     '2 - List all people',
     '3 - create a person',
     '4 - create a book',
     '5 - create a rental',
     '6 - List all rental for a given person id',
-    "7 - Exit \n\n"
-  ]
+    "7 - Exit \n\n" ]
+  load_files
   puts options
   input = gets.chomp.to_i
   while input != 7
@@ -31,7 +30,7 @@ def main
     puts options
     input = gets.chomp.to_i
   end
+save_files
 end
-
 main
 # rubocop:enable Metrics/CyclomaticComplexity
