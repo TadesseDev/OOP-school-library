@@ -3,25 +3,25 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
-require_relative 'process_file'
+require_relative 'proccess_file'
 @class_room = Classroom.new('microverse_one')
 @persons = []
 @books = []
 @rentals = []
-person_file = ProccessJsonFile.new('person.json')
-book_file = ProccessJsonFile.new('book.json')
-rentasl_file = ProccessJsonFile.new('rental.json')
+@person_file = ProccessJsonFile.new('person.json')
+@book_file = ProccessJsonFile.new('book.json')
+@rentasl_file = ProccessJsonFile.new('rental.json')
 
 def load_files
-puts person_file.read_json
-puts book_file.read_json
-puts rentasl_file.read_json
+puts @person_file.read_json
+puts @book_file.read_json
+puts @rentasl_file.read_json
 end
 
 def save_files
-puts person_file.save_to_json(@persons,option: {})
-puts book_file.save_to_json(@books,option: {})
-puts rentasl_file.save_to_json(@rentals,option: {})
+puts @person_file.save_to_json(@persons,options: {})
+puts @book_file.save_to_json(@books,options: {})
+puts @rentasl_file.save_to_json(@rentals,options: {})
 end
 
 def list_all_books
