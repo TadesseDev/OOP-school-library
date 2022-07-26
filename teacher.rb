@@ -6,5 +6,4 @@ class Teacher < Person
     super(age, name)
     @specialization = specialization
   end
-
 end

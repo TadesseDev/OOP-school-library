@@ -21,13 +21,14 @@ class Student < Person
   end
 
   private
+
   def isof_age?
     @age >= 18
   end
+
   # setter
   def update_classroom(classroom)
     @classroom = classroom
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
-
