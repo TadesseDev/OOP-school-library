@@ -18,7 +18,7 @@ class ProccessJsonFile
     file_data
   rescue StandardError
     puts "no file found to read on #{@file_location}"
-    nil
+    return nil
   end
 end
 

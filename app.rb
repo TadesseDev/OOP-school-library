@@ -15,13 +15,13 @@ require 'pry'
 @rentasl_file = ProccessJsonFile.new('rental.json')
 
 def load_files
- @persons=@person_file.read_json.map do |person|
+ @persons=@person_file.read_json ? @person_file.read_json.map do |person|
   person["classroom"] ? Student.new(person["age"],  Classroom.new(person["classroom"]), person["name"], person["permission"]) : Teacher.new(person["age"], person["specialization"], person["name"])
-end
-@books=@book_file.read_json.map do |book|
+end : []
+@books=@book_file.read_json ? @book_file.read_json.map do |book|
   binding.pry
   Book.new(book["title"], book["author"])
-end
+end : []
 # puts @rentasl_file.read_json
 end
 
