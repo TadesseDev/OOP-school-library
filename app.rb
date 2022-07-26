@@ -9,19 +9,21 @@ require_relative 'rental'
 @rentals = []
 
 class MakePerson
-  @person
-@class_room = Classroom.new('microverse_one')
-  def initialize(age,name,input)
+  @class_room = Classroom.new('microverse_one')
+  def initialize(age, name, input)
     @age = age
     @name = name
     @input = input
   end
-  def get_person
+
+  def getperson
     create_person
   end
+
   private
+
   def create_person
-  case @input
+    case @input
     when 1
       print 'Hase parent permission [Y/N]: '
       permission = gets.chomp
@@ -35,6 +37,7 @@ class MakePerson
     @person
   end
 end
+
 def list_all_books
   @books.each_with_index { |book, index| puts "#{index} Title: \"#{book.title}\", Author: \"#{book.author}\"" }
 end
@@ -53,8 +56,8 @@ def create_person
     age = gets.chomp.to_i
     print 'Name: '
     name = gets.chomp
-    persone=MakePerson.new(age,name,input)
-    @persons.push(persone.get_person)
+    persone = MakePerson.new(age, name, input)
+    @persons.push(persone.getperson)
     puts 'Person created  successfully!!'
   else
     puts 'Invalid input'
