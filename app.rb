@@ -4,6 +4,7 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 require_relative 'proccess_file'
+require 'json'
 require 'pry'
 @class_room = Classroom.new('microverse_one')
 @persons = []
@@ -14,11 +15,13 @@ require 'pry'
 @rentasl_file = ProccessJsonFile.new('rental.json')
 
 def load_files
- @person_file.read_json.each do |persone|
-  puts persone["age"]
-  # persone.classroom ? Student.new(age, Classroom.new(persone[]), name, permission)
+ @persons=@person_file.read_json.map do |person|
+  person["classroom"] ? Student.new(person["age"],  Classroom.new(person["classroom"]), person["name"], person["permission"]) : Teacher.new(person["age"], person["specialization"], person["name"])
 end
-# puts @book_file.read_json
+@books=@book_file.read_json.map do |book|
+  binding.pry
+  Book.new(book["title"], book["author"])
+end
 # puts @rentasl_file.read_json
 end
 

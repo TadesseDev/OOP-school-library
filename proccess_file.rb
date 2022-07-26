@@ -1,8 +1,5 @@
 require 'json'
-require_relative 'student'
-require_relative 'teacher'
-require_relative 'book'
-require_relative 'rental'
+
 class ProccessJsonFile
   def initialize(file_location)
     @file_location = file_location
