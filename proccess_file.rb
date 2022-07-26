@@ -1,4 +1,8 @@
 require 'json'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+require_relative 'rental'
 class ProccessJsonFile
   def initialize(file_location)
     @file_location = file_location
@@ -21,22 +25,16 @@ class ProccessJsonFile
   end
 end
 
+# class testing contents
+# option = ProccessJsonFile.new('options.rb')
+# option3 = ProccessJsonFile.new('records.rb')
+# option.save_to_json(%w[t b c], options: {})
+# puts option.read_json
+# option.save_to_json(%w[d e f], options: {})
+# puts option.read_json
+# puts option3.read_json
 
-
-=begin
-class testing contents
-option = ProccessJsonFile.new('options.rb')
-option3 = ProccessJsonFile.new('records.rb')
-option.save_to_json(%w[t b c], options: {})
-puts option.read_json
-option.save_to_json(%w[d e f], options: {})
-puts option.read_json
-puts option3.read_json
-=end
-
-=begin
-manual testing contents
-=end
+# manual testing contents
 # file=File.open('options.txt','r')
 # file.write('this is file content')
 # file_data = file.read

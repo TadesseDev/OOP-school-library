@@ -4,6 +4,7 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 require_relative 'proccess_file'
+require 'pry'
 @class_room = Classroom.new('microverse_one')
 @persons = []
 @books = []
@@ -13,15 +14,23 @@ require_relative 'proccess_file'
 @rentasl_file = ProccessJsonFile.new('rental.json')
 
 def load_files
-puts @person_file.read_json
-puts @book_file.read_json
-puts @rentasl_file.read_json
+ @person_file.read_json.each do |persone|
+  puts persone["age"]
+  # persone.classroom ? Student.new(age, Classroom.new(persone[]), name, permission)
+end
+# puts @book_file.read_json
+# puts @rentasl_file.read_json
 end
 
 def save_files
-puts @person_file.save_to_json(@persons,options: {})
-puts @book_file.save_to_json(@books,options: {})
-puts @rentasl_file.save_to_json(@rentals,options: {})
+  personArray=@persons.map do |person|
+   person.class==Student ? {"name": person.name,"classroom": person.classroom.label,"age": person.age,"permission": person.parent_permission} : {"name": person.name,"specialization": "not set","age": person.age}
+end
+bookArray=@books.map {|book| {"title": book.title, "author": book.author}}
+rentArray=@rentals.map {|rental| {"date": rental.date, "book": rental.book, "person": rental.person}}
+@person_file.save_to_json(personArray,options: {})
+@book_file.save_to_json(bookArray,options: {})
+@rentasl_file.save_to_json(rentArray,options: {})
 end
 
 def list_all_books

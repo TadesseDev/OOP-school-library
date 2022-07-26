@@ -2,7 +2,7 @@ require_relative 'person'
 
 # This a Student class
 class Student < Person
-  attr_accessor :classroom
+  attr_accessor :classroom, :parent_permission
 
   # rubocop:disable Style/OptionalBooleanParameter
   def initialize(age, classroom, name = 'Unknown', parent_permission = true)
