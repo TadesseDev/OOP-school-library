@@ -4,10 +4,37 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 
-@class_room = Classroom.new('microverse_one')
 @persons = []
 @books = []
 @rentals = []
+
+class MakePerson
+  @person
+@class_room = Classroom.new('microverse_one')
+  def initialize(age,name,input)
+    @age = age
+    @name = name
+    @input = input
+  end
+  def get_person
+    create_person
+  end
+  private
+  def create_person
+  case @input
+    when 1
+      print 'Hase parent permission [Y/N]: '
+      permission = gets.chomp
+      permission = permission.upcase == 'Y'
+      @person = Student.new(@age, @class_room, @name, permission)
+    when 2
+      print 'Specialization: '
+      specialization = gets.chomp
+      @person = Teacher.new(@age, specialization, @name)
+    end
+    @person
+  end
+end
 def list_all_books
   @books.each_with_index { |book, index| puts "#{index} Title: \"#{book.title}\", Author: \"#{book.author}\"" }
 end
@@ -26,21 +53,9 @@ def create_person
     age = gets.chomp.to_i
     print 'Name: '
     name = gets.chomp
-    case input
-    when 1
-      print 'Hase parent permission [Y/N]: '
-      permission = gets.chomp
-      permission = permission.upcase == 'Y'
-      student = Student.new(age, @class_room, name, permission)
-      @persons.push(student)
-      puts 'Person created  successfully!!'
-    when 2
-      print 'Specialization: '
-      specialization = gets.chomp
-      teacher = Teacher.new(age, specialization, name)
-      @persons.push(teacher)
-      puts 'Person created  successfully!!'
-    end
+    persone=MakePerson.new(age,name,input)
+    @persons.push(persone.get_person)
+    puts 'Person created  successfully!!'
   else
     puts 'Invalid input'
   end
