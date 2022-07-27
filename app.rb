@@ -3,11 +3,95 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'proccess_file'
+require 'json'
+require 'pry'
 
 @class_room = Classroom.new('microverse_one')
 @persons = []
 @books = []
 @rentals = []
+@person_file = ProccessJsonFile.new('person.json')
+@book_file = ProccessJsonFile.new('book.json')
+@rentasl_file = ProccessJsonFile.new('rental.json')
+
+def process_input(input)
+  case input
+  when 1
+    list_all_books
+  when 2
+    list_all_people
+  when 3
+    puts create_person
+  when 4
+    puts create_book
+  when 5
+    puts create_rental
+  when 6
+    puts list_all_rentals
+  end
+end
+
+def load_files
+  @persons = load_people
+  @books = load_books
+  @rentals = load_rentals
+end
+
+def load_people
+  if @person_file.read_json
+    @person_file.read_json.map do |person|
+      if person['classroom']
+        Student.new(person['age'], Classroom.new(person['classroom']), person['name'], person['permission'])
+      else
+        Teacher.new(person['age'], person['specialization'], person['name'])
+      end
+    end
+  else
+    []
+  end
+end
+
+def load_books
+  if @book_file.read_json
+    @book_file.read_json.map do |book|
+      Book.new(book['title'], book['author'])
+    end
+  else
+    []
+  end
+end
+
+def load_rentals
+  if @rentasl_file.read_json
+    @rentasl_file.read_json.map do |rent|
+      Rental.new(rent['date'], @books[rent['book']], @persons[rent['person']])
+    end
+  else
+    []
+  end
+end
+
+def save_files
+  person_array = @persons.map do |person|
+    if person.instance_of?(Student)
+      { name: person.name, classroom: person.classroom.label, age: person.age,
+        permission: person.parent_permission }
+    else
+      { name: person.name,
+        specialization: 'not set', age: person.age }
+    end
+  end
+  book_array = @books.map { |book| { title: book.title, author: book.author } }
+
+  rent_array = @rentals.map do |rental|
+    { date: rental.date, book: @books.index(rental.book), person: @persons.index(rental.person) }
+  end
+  @person_file.save_to_json(person_array, options: {})
+  @book_file.save_to_json(book_array, options: {})
+  @rentasl_file.save_to_json(rent_array, options: {})
+end
+
 def list_all_books
   @books.each_with_index { |book, index| puts "#{index} Title: \"#{book.title}\", Author: \"#{book.author}\"" }
 end
