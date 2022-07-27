@@ -14,4 +14,5 @@ describe Person do
     expect(@person.rentals).to be_an_instance_of(Array)
     end
   end
+
 end
