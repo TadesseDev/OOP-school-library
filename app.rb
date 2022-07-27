@@ -6,6 +6,7 @@ require_relative 'rental'
 require_relative 'proccess_file'
 require 'json'
 require 'pry'
+
 @class_room = Classroom.new('microverse_one')
 @persons = []
 @books = []
@@ -14,28 +15,81 @@ require 'pry'
 @book_file = ProccessJsonFile.new('book.json')
 @rentasl_file = ProccessJsonFile.new('rental.json')
 
+def process_input(input)
+  case input
+  when 1
+    list_all_books
+  when 2
+    list_all_people
+  when 3
+    puts create_person
+  when 4
+    puts create_book
+  when 5
+    puts create_rental
+  when 6
+    puts list_all_rentals
+  end
+end
+
 def load_files
- @persons=@person_file.read_json ? @person_file.read_json.map do |person|
-  person["classroom"] ? Student.new(person["age"],  Classroom.new(person["classroom"]), person["name"], person["permission"]) : Teacher.new(person["age"], person["specialization"], person["name"])
-end : []
-@books=@book_file.read_json ? @book_file.read_json.map do |book|
-  Book.new(book["title"], book["author"])
-end : []
-@rentals=@rentasl_file.read_json ? @rentasl_file.read_json.map do |rent|
-Rental.new(rent["date"], @books[rent["book"]], @persons[rent["person"]])
-end : []
+  @persons = load_people
+  @books = load_books
+  @rentals = load_rentals
+end
+
+def load_people
+  if @person_file.read_json
+    @person_file.read_json.map do |person|
+      if person['classroom']
+        Student.new(person['age'], Classroom.new(person['classroom']), person['name'], person['permission'])
+      else
+        Teacher.new(person['age'], person['specialization'], person['name'])
+      end
+    end
+  else
+    []
+  end
+end
+
+def load_books
+  if @book_file.read_json
+    @book_file.read_json.map do |book|
+      Book.new(book['title'], book['author'])
+    end
+  else
+    []
+  end
+end
+
+def load_rentals
+  if @rentasl_file.read_json
+    @rentasl_file.read_json.map do |rent|
+      Rental.new(rent['date'], @books[rent['book']], @persons[rent['person']])
+    end
+  else
+    []
+  end
 end
 
 def save_files
-  personArray=@persons.map do |person|
-   person.class==Student ? {"name": person.name,"classroom": person.classroom.label,"age": person.age,"permission": person.parent_permission} : {"name": person.name,"specialization": "not set","age": person.age}
-end
-bookArray=@books.map {|book| {"title": book.title, "author": book.author}}
+  person_array = @persons.map do |person|
+    if person.instance_of?(Student)
+      { name: person.name, classroom: person.classroom.label, age: person.age,
+        permission: person.parent_permission }
+    else
+      { name: person.name,
+        specialization: 'not set', age: person.age }
+    end
+  end
+  book_array = @books.map { |book| { title: book.title, author: book.author } }
 
-rentArray=@rentals.map {|rental| {"date": rental.date, "book": @books.index(rental.book), "person": @persons.index(rental.person)}}
-@person_file.save_to_json(personArray,options: {})
-@book_file.save_to_json(bookArray,options: {})
-@rentasl_file.save_to_json(rentArray,options: {})
+  rent_array = @rentals.map do |rental|
+    { date: rental.date, book: @books.index(rental.book), person: @persons.index(rental.person) }
+  end
+  @person_file.save_to_json(person_array, options: {})
+  @book_file.save_to_json(book_array, options: {})
+  @rentasl_file.save_to_json(rent_array, options: {})
 end
 
 def list_all_books
