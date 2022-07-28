@@ -9,6 +9,7 @@ class ProccessJsonFile
     file = File.new(@file_location, 'w')
     file.write(JSON.generate(data, options))
     file.close
+    'success'
   end
 
   def read_json(options: {})
